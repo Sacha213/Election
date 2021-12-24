@@ -3,10 +3,8 @@ public class Simulation {
 	private Electeur[] electeurs;
 	private Candidat[] candidats;
 
-	public Simulation(Scrutin s, Electeur[] e, Candidat[] c) {
-		scrutin = s;
-		electeurs = e;
-		candidats = c;
+	public Simulation() {
+		super();
 	}
 
 	public Scrutin getScrutin() {

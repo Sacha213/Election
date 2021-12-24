@@ -1,4 +1,18 @@
 {
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin"
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/Users/sachamontel/Downloads/poi-3.15/poi-ooxml-schemas-3.15.jar",
+            "/Users/sachamontel/Downloads/poi-3.15/poi-examples-3.15.jar",
+            "/Users/sachamontel/Downloads/poi-3.15/poi-excelant-3.15.jar",
+            "/Users/sachamontel/Downloads/poi-3.15/poi-ooxml-3.15.jar"
+        ],
+        "exclude": [
+            "/Users/sachamontel/Downloads/poi-3.15/poi-scratchpad-3.15.jar"
+        ]
+    }
 }
