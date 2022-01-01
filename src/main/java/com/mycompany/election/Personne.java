@@ -5,9 +5,9 @@ public abstract class Personne {
 	private int id;
 	private String nom;
 	private String prenom;
-	private Float[] opinions;
+	private Double[] opinions;
 
-	public Personne(String n, String p, Float[] o){
+	public Personne(String n, String p, Double[] o){
 		id = nombrePersonne;
 		nombrePersonne++;
 		nom = n;
@@ -39,11 +39,11 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
-	public Float[] getOpinions() {
+	public Double[] getOpinions() {
 		return this.opinions;
 	}
 
-	public void setOpinions(Float[] opinions) {
+	public void setOpinions(Double[] opinions) {
 		this.opinions = opinions;
 	}
 	

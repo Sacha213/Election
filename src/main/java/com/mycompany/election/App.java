@@ -40,9 +40,9 @@ public class App {
                         Electeur[] electeurs = new Electeur[allData.size()-1];
                         for (int j=0;j<allData.size()-1; j++) {
                             String name = allData.get(j)[0];
-                            Float[] opinions = new Float[allData.get(j).length-1];
+                            Double[] opinions = new Double[allData.get(j).length-1];
                             for(int i=1;i<allData.get(j).length;i++){
-                                opinions[i-1]=Float.valueOf(allData.get(j)[i]);
+                                opinions[i-1]=Double.valueOf(allData.get(j)[i]);
                             }
                             Electeur electeur = new Electeur(name, null,opinions);
                             electeurs[j]=electeur;
