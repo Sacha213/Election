@@ -10,24 +10,28 @@ import java.util.stream.Stream;
 public class Majoritaire1t extends Scrutin{
 	
     @Override
-    public String election(Electeur[] electeurs, Candidat[] candidats){
+    public Candidat election(Electeur[] electeurs, Candidat[] candidats){
         
-        Map<String, Integer> votes = new HashMap<String, Integer>();
-        for(Candidat candidat : candidats){
-            votes.put(candidat.getNom(), 0);
-        }
+        //Initialisation des votes pour les différents candidats
+        Map<Candidat, Integer> votes = super.initialisationVotes(candidats);
+        
         
         //On parcours la liste des électeurs 
         for(Electeur electeur : electeurs){
-            List<Map.Entry<String, Double>> listCandidatsVecteur = super.getClassement(electeur, candidats);
-            String candidat = listCandidatsVecteur.get(0).getKey();
+            //On classe les candidats
+            List<Map.Entry<Candidat, Double>> listCandidatsVecteur = super.getClassement(electeur, candidats);
+            Candidat candidat = listCandidatsVecteur.get(0).getKey();
+            
+            //On met à jour les votes
             int nbVotes = votes.get(candidat) + 1;
             votes.replace(candidat, nbVotes);
         }
         
-        //trier les votes
+        //On trie les votes
+        List<Map.Entry<Candidat, Integer>> votesTrier = super.trierVotes(votes);
+        Candidat candidat = votesTrier.get(0).getKey();
         
-        return null;
+        return candidat;
     }
     
     
