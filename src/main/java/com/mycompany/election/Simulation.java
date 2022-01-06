@@ -42,6 +42,7 @@ public class Simulation {
 	}
 
 	public void election() {
+            scrutin.election(electeurs, candidats);
 
 	}
 

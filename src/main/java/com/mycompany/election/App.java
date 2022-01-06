@@ -40,12 +40,27 @@ public class App {
                     switch (choix) {
                         case 1:
                             //Instruction
-                            //...
+                            System.out.println("Renommer vos fichiers Electeurs.csv et Candidtas.csv");
+                            System.out.println("Puis placer les à la racine du projet");
+                            System.out.println("Taper 1 pour : Continuer");
+                            choix = scanner.nextInt();
+                            
+                            electeurs = getElecteursFromCsv("Electeurs.csv");
+                            candidats = getCandidatsFromCsv("Candidats.csv");
                             
                             break;
                         case 2:
-                            electeurs = getElecteursFromCsv("Electeurs.csv");
-                            candidats = getCandidatsFromCsv("Candidats.csv");
+                            //Valeurs aléatoires
+                            System.out.println("Entrer un nombre de candidats");
+                            int nbCandidats = scanner.nextInt();
+                            System.out.println("Entrer un nombre d'électeurs");
+                            int nbElecteurs = scanner.nextInt();
+                            System.out.println("Entrer un nombre de critères");
+                            int nbCriteres = scanner.nextInt();
+                            
+                            electeurs = getElecteursFromAleatoire(nbElecteurs, nbCriteres);
+                            candidats = getCandidatsFromAleatoire(nbCandidats, nbCriteres);
+                            
                             break;
                         default:
                             System.out.println("Oups, veuillez entrer une valeur correcte");
@@ -159,4 +174,35 @@ public class App {
         }
         return candidats;
     }
+    
+    public static Candidat[] getCandidatsFromAleatoire(int nbCandidats, int nbCriteres) {
+            Candidat[] candidats = new Candidat[nbCandidats];
+            for (int i = 0; i < nbCandidats; i++) {
+                String name = "Candidat n°"+i;
+                Double[] opinions = new Double[nbCriteres];
+                for (int j = 0; i < nbCriteres; i++) {
+                    opinions[j] = Math.random();
+                }
+                Candidat candidat = new Candidat(name, null, opinions);
+                candidats[i] = candidat;
+            }
+        
+        return candidats;
+    }
+    
+    public static Electeur[] getElecteursFromAleatoire(int nbElecteurs, int nbCriteres) {
+            Electeur[] electeurs = new Electeur[nbElecteurs];
+            for (int i = 0; i < nbElecteurs; i++) {
+                String name = "Electeur n°"+i;
+                Double[] opinions = new Double[nbCriteres];
+                for (int j = 0; i < nbCriteres; i++) {
+                    opinions[j] = Math.random();
+                }
+                Electeur electeur = new Electeur(name, null, opinions);
+                electeurs[i] = electeur;
+            }
+        
+        return electeurs;
+    }
+    
 }

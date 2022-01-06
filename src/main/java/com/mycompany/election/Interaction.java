@@ -1,6 +1,7 @@
 package com.mycompany.election;
 
 public class Interaction extends TypeEvolution{
+    //return simulation ?
     public void evolution (Simulation simulation) {
         int nbElecteurs = simulation.getElecteurs().length;
         int nbCandidats = simulation.getCandidats().length;
@@ -15,6 +16,8 @@ public class Interaction extends TypeEvolution{
                 int rand = (int)(Math.random()*(nbCandidats));
                 personne = simulation.getCandidats()[rand];
             }
+            
+            
             
         }
     }
