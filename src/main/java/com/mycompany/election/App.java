@@ -9,7 +9,7 @@ import java.io.File;
 public class App {
     
     public static void main(String[] args) throws Exception {
-        System.out.println("Bienvenu dans l'élection 2.0");
+        System.out.println("Bienvenue dans l'élection 2.0");
         
         Simulation simulation = new Simulation();
         
