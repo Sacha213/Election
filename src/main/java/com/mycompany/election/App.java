@@ -106,7 +106,27 @@ public class App {
                     break;
                 // Effectuer une simulation
                 case 3:
+                    
+                    System.out.println("Taper 1 pour : Réaliser une élection");
+                    System.out.println("Taper 2 pour : Réaliser un sondage");
+                    System.out.println("Taper 3 pour : Réaliser une évolution");
+                    choix = scanner.nextInt();
+                    
+                switch (choix) {
+                    case 1:
+                        simulation.election();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        System.out.println("Oups, veuillez entrer une valeur correcte");
+                        break;
+                }
+                    
                     break;
+
                 case 4:
                     // Quitter
                     System.out.println("Au revoir");

@@ -6,7 +6,7 @@ import java.util.Map;
 public class Borda extends Scrutin {
 
     @Override
-    public Candidat election(Electeur[] electeurs, Candidat[] candidats) {
+    public List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats) {
         
         //Initialisation des votes pour les différents candidats
         Map<Candidat, Integer> votes = super.initialisationVotes(candidats);
@@ -29,9 +29,9 @@ public class Borda extends Scrutin {
         
         //On trie les votes
         List<Map.Entry<Candidat, Integer>> votesTrier = super.trierVotes(votes);
-        Candidat candidat = votesTrier.get(0).getKey();
+        //Candidat candidat = votesTrier.get(0).getKey();
         
-        return candidat;    
+        return votesTrier;    
     }
 	
 }

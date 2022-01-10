@@ -2,6 +2,7 @@ package com.mycompany.election;
 
 import static java.lang.Math.abs;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +11,8 @@ public abstract class Scrutin {
 
 	
         
-        public abstract Candidat election(Electeur[] electeurs, Candidat[] candidats);
-        
+        public abstract List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats);
+                
         //Ou mettre ces méthodes ?
         public List<Map.Entry<Candidat, Double>> getClassement(Electeur electeur, Candidat[] candidats){
         
@@ -41,6 +42,7 @@ public abstract class Scrutin {
                 
             List<Map.Entry<Candidat, Integer>> listVoteTrier = new ArrayList<>(votes.entrySet());
             listVoteTrier.sort(Map.Entry.comparingByValue());
+            Collections.reverse(listVoteTrier);
             
             return listVoteTrier;
             

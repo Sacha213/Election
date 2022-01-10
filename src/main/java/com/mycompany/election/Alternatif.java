@@ -6,7 +6,10 @@ import java.util.Map;
 public class Alternatif extends Scrutin{
 
     @Override
-    public Candidat election(Electeur[] electeurs, Candidat[] candidats) {
+    public List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats) {
+        
+        //Trouver un classemment pour les candidats
+        List<Map.Entry<Candidat, Integer>> classement = new Map(); 
         
         while(candidats.length>1){
         
@@ -40,7 +43,7 @@ public class Alternatif extends Scrutin{
         
         Candidat candidat = candidats[0];
         
-        return candidat;
+        return classement;
     }
 	
 }

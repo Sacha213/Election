@@ -7,7 +7,7 @@ import java.util.Map;
 public class Majoritaire2t extends Scrutin{
 
     @Override
-    public Candidat election(Electeur[] electeurs, Candidat[] candidats) {
+    public List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats) {
         
         //1er tour
         
@@ -58,9 +58,9 @@ public class Majoritaire2t extends Scrutin{
         
         //On trie les votes
         votesTrier = super.trierVotes(votes);
-        Candidat candidat = votesTrier.get(0).getKey();
+        //Candidat candidat = votesTrier.get(0).getKey();
         
-        return candidat;
+        return votesTrier;
     }
 
     
