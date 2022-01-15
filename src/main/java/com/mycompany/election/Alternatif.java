@@ -1,15 +1,19 @@
 package com.mycompany.election;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Alternatif extends Scrutin{
 
     @Override
     public List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats) {
         
-        //Trouver un classemment pour les candidats
-        List<Map.Entry<Candidat, Integer>> classement = new Map(); 
+        //Classemment final des candidats
+        Map<Candidat, Integer> classement = new HashMap<>();
         
         while(candidats.length>1){
         
@@ -38,12 +42,20 @@ public class Alternatif extends Scrutin{
             Candidat candidat = votesTrier.get(i).getKey();
             candidats[i]=candidat;
             }
+        //On récupère le candidat éjecté
+        classement.put(votesTrier.get(votesTrier.size()-1).getKey(), nbCandidatRestant+1);
         
         }
         
-        Candidat candidat = candidats[0];
+        //On récupère le candidat élu
+        classement.put(candidats[0], 1);
         
-        return classement;
+        
+        
+        List<Map.Entry<Candidat, Integer>> classementCandidat = super.trierVotes(classement);
+        Collections.reverse(classementCandidat);
+        
+        return classementCandidat;
     }
 	
 }

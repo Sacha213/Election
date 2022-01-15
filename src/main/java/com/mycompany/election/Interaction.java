@@ -1,8 +1,9 @@
 package com.mycompany.election;
 
 public class Interaction extends TypeEvolution{
-    //return simulation ?
+    
     public void evolution (Simulation simulation) {
+        //Atention, on peut avoir deux fois le mm électeur
         int nbElecteurs = simulation.getElecteurs().length;
         int nbCandidats = simulation.getCandidats().length;
         for(Electeur electeur : simulation.getElecteurs()) {

@@ -15,9 +15,9 @@ public class Majoritaire1t extends Scrutin{
         //Initialisation des votes pour les différents candidats
         Map<Candidat, Integer> votes = super.initialisationVotes(candidats);
         
-        
         //On parcours la liste des électeurs 
         for(Electeur electeur : electeurs){
+           
             //On classe les candidats
             List<Map.Entry<Candidat, Double>> listCandidatsVecteur = super.getClassement(electeur, candidats);
             Candidat candidat = listCandidatsVecteur.get(0).getKey();

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.io.FileReader;
 import com.opencsv.*;
 import java.io.File;
+import java.util.Map;
 
 public class App {
     
@@ -69,6 +70,7 @@ public class App {
                     
                     simulation.setCandidats(candidats);
                     simulation.setElecteurs(electeurs);
+                    System.out.println("Electeurs" + simulation.getElecteurs().length);
                     break;
                 
                 case 2:
@@ -114,9 +116,12 @@ public class App {
                     
                 switch (choix) {
                     case 1:
-                        simulation.election();
+                        List<Map.Entry<Candidat, Integer>> resultatElection = simulation.election();
+                        simulation.afficherResultat(resultatElection, simulation.getElecteurs().length);
                         break;
                     case 2:
+                        List<Map.Entry<Candidat, Integer>> resultatSondage = simulation.sondage();
+                        simulation.afficherResultat(resultatSondage, (int)(0.1 * simulation.getElecteurs().length));
                         break;
                     case 3:
                         break;
@@ -198,12 +203,13 @@ public class App {
     public static Candidat[] getCandidatsFromAleatoire(int nbCandidats, int nbCriteres) {
             Candidat[] candidats = new Candidat[nbCandidats];
             for (int i = 0; i < nbCandidats; i++) {
-                String name = "Candidat n°"+i;
+                String firstname = "Candidat";
+                String name = "n°"+i;
                 Double[] opinions = new Double[nbCriteres];
-                for (int j = 0; i < nbCriteres; i++) {
+                for (int j = 0; j < nbCriteres; j++) {
                     opinions[j] = Math.random();
                 }
-                Candidat candidat = new Candidat(name, null, opinions);
+                Candidat candidat = new Candidat(name, firstname, opinions);
                 candidats[i] = candidat;
             }
         
@@ -213,12 +219,13 @@ public class App {
     public static Electeur[] getElecteursFromAleatoire(int nbElecteurs, int nbCriteres) {
             Electeur[] electeurs = new Electeur[nbElecteurs];
             for (int i = 0; i < nbElecteurs; i++) {
-                String name = "Electeur n°"+i;
+                String firstname = "Electeur";
+                String name = "n°"+i;
                 Double[] opinions = new Double[nbCriteres];
-                for (int j = 0; i < nbCriteres; i++) {
+                for (int j = 0; j < nbCriteres; j++) {
                     opinions[j] = Math.random();
                 }
-                Electeur electeur = new Electeur(name, null, opinions);
+                Electeur electeur = new Electeur(name, firstname, opinions);
                 electeurs[i] = electeur;
             }
         
