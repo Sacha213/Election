@@ -42,32 +42,24 @@ public class Simulation {
             ArrayList<Integer> indexSondes = new ArrayList<Integer>();
             Electeur[] electeursSondage = new Electeur[nbSondes];
             for(int i = 0; i<nbSondes; i++){
-                int index =(int)(Math.random() * (electeurs.length + 1));
+                int index =(int)(Math.random() * (electeurs.length));
                 if (indexSondes.contains(index)) i--;
                 else {
                     electeursSondage[i] = electeurs[index];
                     indexSondes.add(i);
-                    System.out.println(electeursSondage[i].getNom());
                 }       
             }
             return scrutin.election(electeursSondage, candidats);
 	}
 
 	public void evolution(TypeEvolution te) {
-            
+            te.evoluer(this);
 	}
 
 	public List<Map.Entry<Candidat, Integer>> election() {
             return scrutin.election(electeurs, candidats);
 	}
         
-        public void afficherResultat(List<Map.Entry<Candidat, Integer>> resultatSondage, int nbElecteurs){
-            System.out.print("Le candidat en première position du sondage est " + resultatSondage.get(0).getKey().getPrenom() + " " + resultatSondage.get(0).getKey().getNom());
-            System.out.println(" avec " + resultatSondage.get(0).getValue()*100/nbElecteurs + " % des votes");
-            for (int i = 1; i < candidats.length; i++){
-                System.out.println("Le candidat en " + (i+1) + " ème position est " + resultatSondage.get(i).getKey().getPrenom() + " " + resultatSondage.get(i).getKey().getNom());
-                System.out.println(" avec " + resultatSondage.get(i).getValue()*100/nbElecteurs + " % des votes");
-            }
-        }
+
 
 }

@@ -4,15 +4,11 @@ import static java.lang.Math.abs;
 import java.util.HashSet;
 
 public abstract class TypeEvolution {
-	
 
-	public void evoluer(Simulation s){
-
-	}
+	public abstract void evoluer(Simulation simulation);
         
-        //SI +1 et -0 ???
         public void deplacement(Personne personne1, Personne personne2){
-            //On déplace la persone1 par rapport à la personne2
+            //On déplace la personne1 par rapport à la personne2
             
             
             //On calcul la somme des différences des critères
@@ -32,6 +28,7 @@ public abstract class TypeEvolution {
                     double difference = 1 -(opinionsP1[i]-opinionsP2[i]);
                     opinionsP1[i] = difference*moyenne;
                 }
+                System.out.println("eloigner");
             }
         }
         
@@ -52,7 +49,20 @@ public abstract class TypeEvolution {
             //On parcours tous les critères
             for(int i = 0; i< nbCriteres; i++){
                 double difference = opinionsP1[i]-opinionsP2[i];
-                opinionsP1[i] = difference*distance;
+                opinionsP1[i] -= difference*distance;
+            }
+            //On applique les modifications des opinions à la personne
+            personne1.setOpinions(opinionsP1);
+        }
+        
+        public void approcherUtilite (Personne personne1, Personne personne2, double utilite){
+            int nbCriteres = personne1.getOpinions().length;
+            Double[] opinionsP1 = personne1.getOpinions();
+            Double[] opinionsP2 = personne2.getOpinions();
+            //On parcours tous les critères
+            for(int i = 0; i< nbCriteres; i++){
+                double difference = opinionsP1[i]-opinionsP2[i];
+                opinionsP1[i] = difference*utilite;
             }
             //On applique les modifications des opinions à la personne
             personne1.setOpinions(opinionsP1);

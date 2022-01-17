@@ -12,6 +12,8 @@ public abstract class Scrutin {
 	
         
         public abstract List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats);
+        
+        public abstract void afficherResultat (List<Map.Entry<Candidat, Integer>> resultatSondage, int nbElecteurs);
                 
         //Ou mettre ces méthodes ?
         public List<Map.Entry<Candidat, Double>> getClassement(Electeur electeur, Candidat[] candidats){
@@ -25,8 +27,9 @@ public abstract class Scrutin {
                 for(int j=0;j<candidat.getOpinions().length;j++){
                    diffVecteur+=abs(electeur.getOpinions()[j] - candidat.getOpinions()[j]);
                 }
+                double moyenne = diffVecteur/candidat.getOpinions().length;
                 
-                mapCandidatVecteur.put(candidat, diffVecteur);
+                mapCandidatVecteur.put(candidat, moyenne);
                 
                 
                 
@@ -36,7 +39,7 @@ public abstract class Scrutin {
             
             return listCandidatVecteur;
         
-    }
+        }
         
         public List<Map.Entry<Candidat, Integer>> trierVotes(Map<Candidat, Integer> votes){
                 

@@ -1,17 +1,17 @@
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Alternatif.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Sondage.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Personne.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Interaction.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Sondage3.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Candidat.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Approbation.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Borda.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/App.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Sondage2.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Simulation.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/TypeEvolution.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Scrutin.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Electeur.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Majoritaire1t.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Sondage1.java
-/Users/Sacha/NetBeansProjects/election/src/main/java/com/mycompany/election/Majoritaire2t.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Alternatif.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Majoritaire2t.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\TypeEvolution.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Candidat.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Approbation.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Sondage3.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Personne.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Simulation.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Majoritaire1t.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Electeur.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\App.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Interaction.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Sondage1.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Sondage2.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Scrutin.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Borda.java
+C:\Users\Lilian\Documents\Drive\Cours\Semestre 5\APO\election\src\main\java\com\mycompany\election\Sondage.java

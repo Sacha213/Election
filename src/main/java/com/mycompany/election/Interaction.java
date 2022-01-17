@@ -2,7 +2,7 @@ package com.mycompany.election;
 
 public class Interaction extends TypeEvolution{
     
-    public void evolution (Simulation simulation) {
+    public void evoluer (Simulation simulation) {
         //Atention, on peut avoir deux fois le mm électeur
         int nbElecteurs = simulation.getElecteurs().length;
         int nbCandidats = simulation.getCandidats().length;
@@ -17,9 +17,7 @@ public class Interaction extends TypeEvolution{
                 int rand = (int)(Math.random()*(nbCandidats));
                 personne = simulation.getCandidats()[rand];
             }
-            
-            
-            
+        super.deplacement(electeur, personne);
         }
     }
 }
