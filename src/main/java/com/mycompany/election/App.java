@@ -15,6 +15,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
+        boolean wrongAnswer = true;
         int choix;
 
         while (continuer) {
@@ -25,48 +26,51 @@ public class App {
             System.out.println("Taper 4 pour : Quitter");
 
             choix = scanner.nextInt();
-
+            
             switch (choix) {
                 case 1:
                     // Initialisation
-                    System.out.println("Taper 1 pour : Valeurs fournies");
-                    System.out.println("Taper 2 pour : Valeurs aléatoires");
-
-                    choix = scanner.nextInt();
-
                     Candidat[] candidats = null;
                     Electeur[] electeurs = null;
+                    while(wrongAnswer) {
+                        System.out.println("Taper 1 pour : Valeurs fournies");
+                        System.out.println("Taper 2 pour : Valeurs aléatoires");
 
-                    switch (choix) {
-                        case 1:
-                            //Instruction
-                            System.out.println("Renommer vos fichiers Electeurs.csv et Candidats.csv, avec un délimiteur ','");
-                            System.out.println("Puis placer les à la racine du projet");
-                            System.out.println("Taper 1 pour : Continuer");
-                            choix = scanner.nextInt();
+                        choix = scanner.nextInt();
 
-                            electeurs = getElecteursFromCsv("Electeurs.csv");
-                            candidats = getCandidatsFromCsv("Candidats.csv");
+                        switch (choix) {
+                            case 1:
+                                //Instruction
+                                System.out.println("Renommer vos fichiers Electeurs.csv et Candidats.csv, avec un délimiteur ','");
+                                System.out.println("Puis placer les à la racine du projet");
+                                System.out.println("Taper 1 pour : Continuer");
+                                choix = scanner.nextInt();
 
-                            break;
-                        case 2:
-                            //Valeurs aléatoires
-                            System.out.println("Entrer un nombre de candidats");
-                            int nbCandidats = scanner.nextInt();
-                            System.out.println("Entrer un nombre d'électeurs");
-                            int nbElecteurs = scanner.nextInt();
-                            System.out.println("Entrer un nombre de critères");
-                            int nbCriteres = scanner.nextInt();
+                                electeurs = getElecteursFromCsv("Electeurs.csv");
+                                candidats = getCandidatsFromCsv("Candidats.csv");
+                                
+                                wrongAnswer = false;
+                                break;
+                            case 2:
+                                //Valeurs aléatoires
+                                System.out.println("Entrer un nombre de candidats");
+                                int nbCandidats = scanner.nextInt();
+                                System.out.println("Entrer un nombre d'électeurs");
+                                int nbElecteurs = scanner.nextInt();
+                                System.out.println("Entrer un nombre de critères");
+                                int nbCriteres = scanner.nextInt();
 
-                            electeurs = getElecteursFromAleatoire(nbElecteurs, nbCriteres);
-                            candidats = getCandidatsFromAleatoire(nbCandidats, nbCriteres);
-
-                            break;
-                        default:
-                            System.out.println("Oups, veuillez entrer une valeur correcte");
-                            break;
+                                electeurs = getElecteursFromAleatoire(nbElecteurs, nbCriteres);
+                                candidats = getCandidatsFromAleatoire(nbCandidats, nbCriteres);
+                                
+                                wrongAnswer = false;
+                                break;
+                            default:
+                                System.out.println("Oups, veuillez entrer une valeur correcte");
+                                break;
+                        }
                     }
-
+                    wrongAnswer = true;
                     simulation.setCandidats(candidats);
                     simulation.setElecteurs(electeurs);
                     System.out.println("Vous avez chargé " + simulation.getElecteurs().length + " electeur(s) et " + simulation.getCandidats().length + " candidat(s).");
@@ -74,33 +78,42 @@ public class App {
 
                 case 2:
                     // Choisir un scrutin
-                    System.out.println("Taper 1 pour : Majoritaire à un tour");
-                    System.out.println("Taper 2 pour : Majoritaire à deux tours");
-                    System.out.println("Taper 3 pour : Approbation");
-                    System.out.println("Taper 4 pour : Alternatif");
-                    System.out.println("Taper 5 pour : Borda");
-                    choix = scanner.nextInt();
                     Scrutin scrutin = null;
-                    switch (choix) {
-                        case 1:
-                            scrutin = new Majoritaire1t();
-                            break;
-                        case 2:
-                            scrutin = new Majoritaire2t();
-                            break;
-                        case 3:
-                            scrutin = new Approbation();
-                            break;
-                        case 4:
-                            scrutin = new Alternatif();
-                            break;
-                        case 5:
-                            scrutin = new Borda();
-                            break;
-                        default:
-                            System.out.println("Oups, veuillez entrer une valeur correcte");
-                            break;
+                    while(wrongAnswer) {
+                        System.out.println("Taper 1 pour : Majoritaire à un tour");
+                        System.out.println("Taper 2 pour : Majoritaire à deux tours");
+                        System.out.println("Taper 3 pour : Approbation");
+                        System.out.println("Taper 4 pour : Alternatif");
+                        System.out.println("Taper 5 pour : Borda");
+                        choix = scanner.nextInt();
+                        
+                        switch (choix) {
+                            case 1:
+                                scrutin = new Majoritaire1t();
+                                wrongAnswer = false;
+                                break;
+                            case 2:
+                                scrutin = new Majoritaire2t();
+                                wrongAnswer = false;
+                                break;
+                            case 3:
+                                scrutin = new Approbation();
+                                wrongAnswer = false;
+                                break;
+                            case 4:
+                                scrutin = new Alternatif();
+                                wrongAnswer = false;
+                                break;
+                            case 5:
+                                scrutin = new Borda();
+                                wrongAnswer = false;
+                                break;
+                            default:
+                                System.out.println("Oups, veuillez entrer une valeur correcte");
+                                break;
+                        }
                     }
+                    wrongAnswer = true;
                     simulation.setScrutin(scrutin);
                     break;
                 // Effectuer une simulation
@@ -109,57 +122,68 @@ public class App {
                         System.out.println("Veuillez d'abord choisir un scrutin et initialiser les electeurs et candidats.");
                         break;
                     }
-                    System.out.println("Taper 1 pour : Réaliser une élection");
-                    System.out.println("Taper 2 pour : Réaliser un sondage");
-                    System.out.println("Taper 3 pour : Réaliser une évolution");
-                    choix = scanner.nextInt();
-
-                    switch (choix) {
-                        case 1:
-                            List<Map.Entry<Candidat, Integer>> resultatElection = simulation.election();
-                            simulation.getScrutin().afficherResultat(resultatElection, simulation.getElecteurs().length);
-                            break;
-                        case 2:
-                            List<Map.Entry<Candidat, Integer>> resultatSondage = simulation.sondage();
-                            simulation.getScrutin().afficherResultat(resultatSondage, (int) (0.1 * simulation.getElecteurs().length));
-                            break;
-                        case 3:
-                            if(simulation.getScrutin().getClass() != Majoritaire1t.class){
-                                System.out.println("Le mode évolution est pour l'instant uniquement disponible pour ");
-                                System.out.println("le mode de scrutin majoritaire à 1 tour, veuiller attendre une prochaine");
-                                System.out.println("mise a jour de l'application Election 2.0");
+                    
+                    while (wrongAnswer) {
+                        System.out.println("Taper 1 pour : Réaliser une élection");
+                        System.out.println("Taper 2 pour : Réaliser un sondage");
+                        System.out.println("Taper 3 pour : Réaliser une évolution");
+                        choix = scanner.nextInt();
+                    
+                        switch (choix) {
+                            case 1:
+                                List<Map.Entry<Candidat, Integer>> resultatElection = simulation.election();
+                                simulation.getScrutin().afficherResultat(resultatElection, simulation.getElecteurs().length);
+                                wrongAnswer = false;
                                 break;
-                            }
-                            System.out.println("Taper 1 pour : Evolution avec interaction socio-politique");
-                            System.out.println("Taper 2 pour : Evolution à partir d'un sondage 1");
-                            System.out.println("Taper 3 pour : Evolution à partir d'un sondage 2");
-                            System.out.println("Taper 4 pour : Evolution à partir d'un sondage 3");
-                            choix = scanner.nextInt();
-                            
-                            switch (choix) {
-                                case 1:
-                                    simulation.evolution(new Interaction());
+                            case 2:
+                                List<Map.Entry<Candidat, Integer>> resultatSondage = simulation.sondage();
+                                simulation.getScrutin().afficherResultat(resultatSondage, (int) (0.1 * simulation.getElecteurs().length));
+                                wrongAnswer = false;
+                                break;
+                            case 3:
+                                if(simulation.getScrutin().getClass() != Majoritaire1t.class){
+                                    System.out.println("Le mode évolution est pour l'instant uniquement disponible pour ");
+                                    System.out.println("le mode de scrutin majoritaire à 1 tour, veuiller attendre une prochaine");
+                                    System.out.println("mise a jour de l'application Election 2.0");
                                     break;
-                                case 2:
-                                    simulation.evolution(new Sondage1());
-                                    break;
-                                case 3:
-                                    simulation.evolution(new Sondage2());
-                                    break;
-                                case 4:
-                                    simulation.evolution(new Sondage3());
-                                    break;
-                                default:
-                                    System.out.println("Oups, veuillez entrer une valeur correcte");
-                                    break;
-                            }
+                                }
+                                
+                                while(wrongAnswer) {
+                                    System.out.println("Taper 1 pour : Evolution avec interaction socio-politique");
+                                    System.out.println("Taper 2 pour : Evolution à partir d'un sondage 1");
+                                    System.out.println("Taper 3 pour : Evolution à partir d'un sondage 2");
+                                    System.out.println("Taper 4 pour : Evolution à partir d'un sondage 3");
+                                    choix = scanner.nextInt();
 
-                            break;
-                        default:
-                            System.out.println("Oups, veuillez entrer une valeur correcte");
-                            break;
+                                    switch (choix) {
+                                        case 1:
+                                            simulation.evolution(new Interaction());
+                                            wrongAnswer = false;
+                                            break;
+                                        case 2:
+                                            simulation.evolution(new Sondage1());
+                                            wrongAnswer = false;
+                                            break;
+                                        case 3:
+                                            simulation.evolution(new Sondage2());
+                                            wrongAnswer = false;
+                                            break;
+                                        case 4:
+                                            simulation.evolution(new Sondage3());
+                                            wrongAnswer = false;
+                                            break;
+                                        default:
+                                            System.out.println("Oups, veuillez entrer une valeur correcte");
+                                            break;
+                                    }
+                                }
+                                break;
+                            default:
+                                System.out.println("Oups, veuillez entrer une valeur correcte");
+                                break;
+                        }
                     }
-
+                    wrongAnswer = true;
                     break;
 
                 case 4:
