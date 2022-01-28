@@ -3,7 +3,7 @@ package com.mycompany.election;
 import java.util.List;
 import java.util.Map;
 
-public class Sondage1 extends Sondage {
+public class Sondage1 extends TypeEvolution {
     // Le sondage1 rapproche chaque électeur du Candidat le plus proche de lui parmi
     // les n premiers candidats dans un sondage
 

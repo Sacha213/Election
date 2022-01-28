@@ -28,7 +28,6 @@ public abstract class TypeEvolution {
                     double difference = 1 -(opinionsP1[i]-opinionsP2[i]);
                     opinionsP1[i] = difference*moyenne;
                 }
-                System.out.println("eloigner");
             }
         }
         

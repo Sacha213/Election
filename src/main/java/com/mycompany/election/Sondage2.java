@@ -3,7 +3,7 @@ package com.mycompany.election;
 import java.util.List;
 import java.util.Map;
 
-public class Sondage2 extends Sondage {
+public class Sondage2 extends TypeEvolution {
     // Le sondage 2 approche chaque électeur du Candidat avec l'utilité la plus élevée
 
     public void evoluer(Simulation simulation) {
