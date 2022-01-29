@@ -3,8 +3,17 @@ package com.mycompany.election;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe Sondage 2
+ * @author Sacha
+ */
 public class Sondage2 extends TypeEvolution {
     // Le sondage 2 approche chaque électeur du Candidat avec l'utilité la plus élevée
+
+    /**
+     * Effectue une évolution des critères des électeurs en rapprocheant chaque électeur du candidat avec l'utilité la plus élevée
+     * @param simulation Simulation
+     */
 
     public void evoluer(Simulation simulation) {
         List<Map.Entry<Candidat, Integer>> resultatSondage = simulation.sondage();

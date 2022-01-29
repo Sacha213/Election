@@ -3,8 +3,22 @@ package com.mycompany.election;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ * Classe représentant la méthode de scrutin Borda
+ * 
+ * @author Sacha
+ */
 public class Borda extends Scrutin {
 
+    /**
+     *
+     * Obtient une liste de candidats avec leurs nombre de points triée
+     * 
+     * @param electeurs liste d'électeurs
+     * @param candidats liste de candidats
+     * @return
+     */
     @Override
     public List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats) {
 
@@ -34,6 +48,13 @@ public class Borda extends Scrutin {
         return votesTrier;
     }
 
+    /**
+     *
+     * Affiche les résultats de l'élection
+     * 
+     * @param resultatSondage résultat du sondage ou de l'élection
+     * @param nbElecteurs nombre d'électeurs
+     */
     public void afficherResultat(List<Map.Entry<Candidat, Integer>> resultatSondage, int nbElecteurs) {
         System.out.print("Le candidat en première position du sondage est " + resultatSondage.get(0).getKey().getPrenom() + " " + resultatSondage.get(0).getKey().getNom());
         System.out.println(" avec " + resultatSondage.get(0).getValue() + " points");

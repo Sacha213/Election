@@ -7,10 +7,22 @@ import com.opencsv.*;
 import java.io.File;
 import java.util.Map;
 
+/**
+ * Classe principale 
+ * 
+ * @author Sacha
+ */
 public class App {
+
+    /**
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenue dans l'élection 2.0");
 
+        //On crée une simulation
         Simulation simulation = new Simulation();
 
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +57,7 @@ public class App {
                                 System.out.println("Puis placer les à la racine du projet");
                                 System.out.println("Taper 1 pour : Continuer");
                                 choix = scanner.nextInt();
-
+                                
                                 electeurs = getElecteursFromCsv("Electeurs.csv");
                                 candidats = getCandidatsFromCsv("Candidats.csv");
                                 
@@ -202,6 +214,11 @@ public class App {
 
     }
 
+    /**
+     * Obtient les électeurs à patir d'un fichier CSV
+     * @param path chemin 
+     * @return
+     */
     public static Electeur[] getElecteursFromCsv(String path) {
         Electeur[] electeurs = null;
         try {
@@ -210,12 +227,16 @@ public class App {
             CSVReader csvReader = new CSVReader(filereader);
 
             List<String[]> allData = csvReader.readAll();
-
+            
+            //On supprime l'entête
             allData.remove(0);
+            
             electeurs = new Electeur[allData.size()];
             for (int j = 0; j < allData.size(); j++) {
                 String name = allData.get(j)[0];
                 String firstname = allData.get(j)[1];
+                
+                //On récupère les opinions
                 Double[] opinions = new Double[allData.get(j).length - 2];
                 for (int i = 2; i < allData.get(j).length; i++) {
                     opinions[i - 2] = Double.valueOf(allData.get(j)[i]);
@@ -229,6 +250,12 @@ public class App {
         return electeurs;
     }
 
+    /**
+     *Obtient les candidats à patir d'un fichier CSV
+     * 
+     * @param path chemin
+     * @return
+     */
     public static Candidat[] getCandidatsFromCsv(String path) {
         Candidat[] candidats = null;
         try {
@@ -256,6 +283,14 @@ public class App {
         return candidats;
     }
 
+    /**
+     *
+     * Obtient les candidats à partir de valeurs aléatoires 
+     * 
+     * @param nbCandidats nombre de candidats
+     * @param nbCriteres nombre de critères
+     * @return
+     */
     public static Candidat[] getCandidatsFromAleatoire(int nbCandidats, int nbCriteres) {
         Candidat[] candidats = new Candidat[nbCandidats];
         for (int i = 0; i < nbCandidats; i++) {
@@ -272,6 +307,14 @@ public class App {
         return candidats;
     }
 
+    /**
+     *
+     * Obtient les électeurs à partir de valeurs aléatoires 
+     * 
+     * @param nbElecteurs nombre d'électeurs
+     * @param nbCriteres nombre de critères
+     * @return
+     */
     public static Electeur[] getElecteursFromAleatoire(int nbElecteurs, int nbCriteres) {
         Electeur[] electeurs = new Electeur[nbElecteurs];
         for (int i = 0; i < nbElecteurs; i++) {

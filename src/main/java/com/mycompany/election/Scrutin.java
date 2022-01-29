@@ -7,13 +7,37 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe scrutin
+ * @author Sacha
+ */
 public abstract class Scrutin {
 
+    /**
+     * Retourne une liste de candidats triéer avec leurs évaluation
+     * @param electeurs liste d'électeurs 
+     * @param candidats liste de candidats 
+     * @return
+     */
     public abstract List<Map.Entry<Candidat, Integer>> election(Electeur[] electeurs, Candidat[] candidats);
 
+    /**
+     * Affiche les résulatat du sondage ou de l'élection
+     * 
+     * @param resultatSondage résultat du sondage ou de l'élection
+     * @param nbElecteurs nombre d'électeurs
+     */
     public abstract void afficherResultat(List<Map.Entry<Candidat, Integer>> resultatSondage, int nbElecteurs);
 
-    //Ou mettre ces méthodes ?
+
+    /**
+     *
+     * Retourne la liste des candidats classée avec la moyenne des différence de critère pour un électeur
+     * 
+     * @param electeur électeur
+     * @param candidats liste de candidat 
+     * @return
+     */
     public List<Map.Entry<Candidat, Double>> getClassement(Electeur electeur, Candidat[] candidats) {
 
         Map<Candidat, Double> mapCandidatVecteur = new HashMap<>();
@@ -37,6 +61,11 @@ public abstract class Scrutin {
 
     }
 
+    /**
+     * Retourne une liste de candidats triée avec leurs évaluation
+     * @param votes
+     * @return
+     */
     public List<Map.Entry<Candidat, Integer>> trierVotes(Map<Candidat, Integer> votes) {
 
         List<Map.Entry<Candidat, Integer>> listVoteTrier = new ArrayList<>(votes.entrySet());
@@ -47,6 +76,13 @@ public abstract class Scrutin {
 
     }
 
+    /**
+     *
+     * Retourne une map de candidat initialisée avec toutes les valeurs à 0 
+     * 
+     * @param candidats Liste de candidats
+     * @return
+     */
     public Map<Candidat, Integer> initialisationVotes(Candidat[] candidats) {
         Map<Candidat, Integer> votes = new HashMap<Candidat, Integer>();
         for (Candidat candidat : candidats) {

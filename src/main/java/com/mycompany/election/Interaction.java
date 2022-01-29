@@ -1,7 +1,15 @@
 package com.mycompany.election;
 
+/**
+ * Classe représentant la dynamique Interaction socio-politiques
+ * @author Sacha
+ */
 public class Interaction extends TypeEvolution{
     
+    /**
+     * Modification des préférences de chacun des électeurs par intéraction avec une autre personne choisie aléatirement 
+     * @param simulation Simulation
+     */
     public void evoluer (Simulation simulation) {
         //Atention, on peut avoir deux fois le mm électeur
         int nbElecteurs = simulation.getElecteurs().length;

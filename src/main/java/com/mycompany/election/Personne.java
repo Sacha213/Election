@@ -1,5 +1,9 @@
 package com.mycompany.election;
 
+/**
+ * Classe personne
+ * @author Sacha
+ */
 public abstract class Personne {
 	private static int nombrePersonne=0;
 	private int id;
@@ -7,7 +11,13 @@ public abstract class Personne {
 	private String prenom;
 	private Double[] opinions;
 
-	public Personne(String n, String p, Double[] o){
+    /**
+     * Crée une personne
+     * @param n nom de la personne
+     * @param p prénom de la personne
+     * @param o opinions de la personne
+     */
+    public Personne(String n, String p, Double[] o){
 		id = nombrePersonne;
 		nombrePersonne++;
 		nom = n;
@@ -15,35 +25,69 @@ public abstract class Personne {
 		opinions = o;
 	}
 
-	public int getId() {
+    /**
+     * Retourne l'idantifiant de la personne
+     * @return
+     */
+    public int getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+    /**
+     *
+     * Modifie l'idantifiant de la personne
+     * 
+     * @param id identifiant 
+     */
+    public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getNom() {
+    /**
+     * Retourne le nom de la personne
+     * @return
+     */
+    public String getNom() {
 		return this.nom;
 	}
 
-	public void setNom(String nom) {
+    /**
+     *Modifie le nom de la personne
+     * @param nom nom
+     */
+    public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public String getPrenom() {
+    /**
+     * Retourne le prénom de la personne
+     * @return
+     */
+    public String getPrenom() {
 		return this.prenom;
 	}
 
-	public void setPrenom(String prenom) {
+    /**
+     * Modifie le prénom de la personne
+     * @param prenom prénom
+     */
+    public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
 
-	public Double[] getOpinions() {
+    /**
+     * Retourne les opinions de la personne
+     * @return
+     */
+    public Double[] getOpinions() {
 		return this.opinions;
 	}
 
-	public void setOpinions(Double[] opinions) {
+    /**
+     * Modifie les opinions de la personne
+     * @param opinions opinions
+     */
+    public void setOpinions(Double[] opinions) {
 		this.opinions = opinions;
 	}
 	

@@ -3,9 +3,19 @@ package com.mycompany.election;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Classe Sondage 1
+ * @author Sacha
+ */
 public class Sondage1 extends TypeEvolution {
     // Le sondage1 rapproche chaque électeur du Candidat le plus proche de lui parmi
     // les n premiers candidats dans un sondage
+
+    /**
+     * Effectue une évolution des critères des électeurs en rapprocheant chaque électeur du Candidat le plus proche de lui parmi
+     * les n premiers candidats dans un sondage
+     * @param simulation Simulation
+     */
 
     public void evoluer(Simulation simulation) {
         List<Map.Entry<Candidat, Integer>> resultatSondage = simulation.sondage();

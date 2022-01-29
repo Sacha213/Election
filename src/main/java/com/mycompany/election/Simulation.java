@@ -4,40 +4,77 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *Classe Simulation
+ * 
+ * @author Sacha
+ */
 public class Simulation {
 	private Scrutin scrutin;
 	private Electeur[] electeurs;
 	private Candidat[] candidats;
 
-	public Simulation() {
+    /**
+     * Crée une simulation
+     */
+    public Simulation() {
 		super();
 	}
 
-	public Scrutin getScrutin() {
+    /**
+     * Retourne le scrutin
+     * @return
+     */
+    public Scrutin getScrutin() {
 		return this.scrutin;
 	}
 
-	public void setScrutin(Scrutin scrutin) {
+    /**
+     * Modifie le srutin
+     * @param scrutin Scrutin
+     */
+    public void setScrutin(Scrutin scrutin) {
 		this.scrutin = scrutin;
 	}
 
-	public Electeur[] getElecteurs() {
+    /**
+     * Retourne la liste d'électeur de la simulation
+     * @return
+     */
+    public Electeur[] getElecteurs() {
 		return this.electeurs;
 	}
 
-	public void setElecteurs(Electeur[] electeurs) {
+    /**
+     * Modifie la liste d'électeur de la simulation
+     * @param electeurs liste d'électeurs
+     */
+    public void setElecteurs(Electeur[] electeurs) {
 		this.electeurs = electeurs;
 	}
 
-	public Candidat[] getCandidats() {
+    /**
+     * Retourne la liste de candidats de la simulation
+     * @return
+     */
+    public Candidat[] getCandidats() {
 		return this.candidats;
 	}
 
-	public void setCandidats(Candidat[] candidats) {
+    /**
+     * Modifie la liste de candidats de la simulation
+     * @param candidats liste de candidats
+     */
+    public void setCandidats(Candidat[] candidats) {
 		this.candidats = candidats;
 	}
 
-	public List<Map.Entry<Candidat, Integer>> sondage() {
+    /**
+     * Retourne la liste des candidats triée en fonction de leurs évaluation 
+     * après un sondage portant sur 10% des électeurs
+     * @return
+     */
+    public List<Map.Entry<Candidat, Integer>> sondage() {
             int nbSondes = (int)(0.1 * electeurs.length);
             ArrayList<Integer> indexSondes = new ArrayList<Integer>();
             Electeur[] electeursSondage = new Electeur[nbSondes];
@@ -52,11 +89,20 @@ public class Simulation {
             return scrutin.election(electeursSondage, candidats);
 	}
 
-	public void evolution(TypeEvolution te) {
+    /**
+     * Modifie le type d'évolution
+     * @param te Type d'évolution
+     */
+    public void evolution(TypeEvolution te) {
             te.evoluer(this);
 	}
 
-	public List<Map.Entry<Candidat, Integer>> election() {
+    /**
+     * Retourne la liste des candidats triée en fonction de leurs évaluation 
+     * après une élection
+     * @return
+     */
+    public List<Map.Entry<Candidat, Integer>> election() {
             return scrutin.election(electeurs, candidats);
 	}
         

@@ -1,0 +1,48 @@
+@options
+@packages
+-classpath
+'/Users/Sacha/.m2/repository/com/opencsv/opencsv/5.3/opencsv-5.3.jar:/Users/Sacha/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar:/Users/Sacha/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/Users/Sacha/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/Sacha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/Sacha/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/Sacha/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.8'
+-sourcepath
+'/Users/Sacha/Desktop/APO/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/Sacha/Desktop/APO/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'election 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/Users/Sacha/Desktop/APO/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'election 1.0-SNAPSHOT API'
+com.mycompany.election
+/Users/Sacha/.m2/repository/com/opencsv/opencsv/5.3/opencsv-5.3.jar = 1640710460000
+/Users/Sacha/.m2/repository/org/apache/commons/commons-lang3/3.11/commons-lang3-3.11.jar = 1640710464000
+/Users/Sacha/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar = 1640710460000
+/Users/Sacha/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar = 1640710463000
+/Users/Sacha/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar = 1640710460000
+/Users/Sacha/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar = 1640710462000
+/Users/Sacha/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar = 1640710465000
+/Users/Sacha/Desktop/APO/src/main/java = 1642073454000
+/Users/Sacha/Desktop/APO/target/site/apidocs/allclasses-frame.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/allclasses-noframe.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/constant-values.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/deprecated-list.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/help-doc.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/index-all.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/index.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/overview-tree.html = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/package-list = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/script.js = 1643472167000
+/Users/Sacha/Desktop/APO/target/site/apidocs/stylesheet.css = 1643385550000
